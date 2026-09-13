@@ -1,0 +1,150 @@
+<footer class="border-t border-border-light bg-background">
+
+    <div class="mx-auto max-w-7xl px-6 pt-16 pb-10 lg:px-10 lg:pt-20 lg:pb-10">
+
+        <div class="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-16 lg:pb-10">
+
+            <div class="max-w-sm">
+                <!-- Logo -->
+                <a routerLink="/" class="cursor-pointer inline-flex items-center gap-2 no-underline">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-soft text-xl">
+                        <i class="fa-solid fa-link" style="color:var(--color-text-muted)"></i>
+                    </div>
+
+                    <span class="text-2xl font-bold tracking-tight text-text-primary">
+                        Short<span class="text-primary">Link</span>
+                    </span>
+                </a>
+
+                <!-- Description -->
+                <p class="mt-5 text-sm leading-6 text-text-muted">
+                    Shorten long URLs, share them easily and make every
+                    link simple. Fast, clean and free to use.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-sm font-bold text-text-primary">
+                    Product
+                </h3>
+
+                <ul class="mt-5 space-y-3">
+                    <li>
+                        <a href="#shortener"
+                            class="text-sm text-text-muted no-underline transition-colors hover:text-primary">
+                            URL Shortener
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#features"
+                            class="text-sm text-text-muted no-underline transition-colors hover:text-primary">
+                            Features
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#how-it-works"
+                            class="text-sm text-text-muted no-underline transition-colors hover:text-primary">
+                            How It Works
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/pricing"
+                            class="text-sm text-text-muted no-underline transition-colors hover:text-primary">
+                            Pricing
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-sm font-bold text-text-primary">
+                    Company
+                </h3>
+
+                <ul class="mt-5 space-y-3">
+                    <li>
+                        <a routerLink="/about"
+                            class="text-sm text-text-muted no-underline cursor-pointer transition-colors hover:text-primary">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/contact"
+                            class="text-sm text-text-muted no-underline cursor-pointer transition-colors hover:text-primary">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/privacy"
+                            class="text-sm text-text-muted no-underline cursor-pointer transition-colors hover:text-primary">
+                            Privacy Policy
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/terms"
+                            class="text-sm text-text-muted no-underline cursor-pointer transition-colors hover:text-primary">
+                            Terms of Service
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-sm font-bold text-text-primary">
+                    Get in Touch
+                </h3>
+
+                <ul class="mt-5 space-y-4">
+                    <!-- Email -->
+                    <li>
+                        <a href="mailto:support@shortlink.com"
+                            class="flex items-center gap-3 text-sm text-text-muted no-underline transition-colors hover:text-primary">
+                            <span
+                                class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-soft text-primary">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+
+                            support@shortlink.com
+                        </a>
+                    </li>
+
+                    <!-- Social Links -->
+                    <li>
+                        <div class="flex items-center gap-3">
+                            <!-- X / Twitter -->
+                            <a href="#" aria-label="Twitter"
+                                class="flex h-9 w-9 items-center justify-center rounded-full bg-background-muted text-sm font-semibold text-text-secondary no-underline transition-all hover:bg-primary hover:text-white">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+
+                            <!-- LinkedIn -->
+                            <a href="#" aria-label="LinkedIn"
+                                class="flex h-9 w-9 items-center justify-center rounded-full bg-background-muted text-sm font-semibold text-text-secondary no-underline transition-all hover:bg-primary hover:text-white">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+
+                            <!-- GitHub -->
+                            <a href="#" aria-label="GitHub"
+                                class="flex h-9 w-9 items-center justify-center rounded-full bg-background-muted text-sm font-semibold text-text-secondary no-underline transition-all hover:bg-primary hover:text-white">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:text-left">
+            <!-- Copyright -->
+            <p class="text-sm text-text-muted">
+                &copy; {{ currentYear }} ShortLink. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>

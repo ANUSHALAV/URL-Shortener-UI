@@ -1,0 +1,115 @@
+<section id="home" class="relative min-h-[calc(100vh-90px)] overflow-hidden bg-background">
+
+  <div
+    class="pointer-events-none absolute -left-40 -top-40 h-[650px] w-[650px] rounded-full bg-background-blue opacity-80">
+  </div>
+
+  <div
+    class="pointer-events-none absolute -right-40 -top-40 h-[650px] w-[650px] rounded-full bg-background-blue opacity-80">
+  </div>
+
+  <div
+    class="relative z-10 mx-auto grid min-h-[calc(100vh-88px)] max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-6">
+
+    <div class="max-w-2xl">
+      <!-- Small Badge -->
+      <div
+        class="mb-6 inline-flex items-center gap-2 rounded-full border border-border-light bg-background px-4 py-2 text-sm font-medium text-text-secondary shadow-sm">
+        <span class="h-2 w-2 rounded-full bg-success"></span>
+        Free URL Shortener
+      </div>
+
+      <!-- Heading -->
+      <h1 class="text-5xl font-bold leading-[1.08] tracking-[-0.04em] text-text-primary sm:text-6xl lg:text-7xl">
+        Shrink It.
+        <span class="text-primary">Share It.</span>
+        <br />
+        Track It.
+      </h1>
+
+      <!-- Description -->
+      <p class="mt-7 max-w-xl text-base leading-7 text-text-secondary sm:text-lg">
+        Create short, clean and shareable links in seconds. No login required.
+        Just paste your long URL and get your short link instantly.
+      </p>
+
+      <div id="shortener"
+        class="mt-9 flex w-full max-w-2xl flex-col gap-3 rounded-3xl border border-border-light bg-background p-2 shadow-lg sm:flex-row sm:rounded-full">
+        <!-- URL Input -->
+        <div class="flex min-h-12 flex-1 items-center gap-3 px-4">
+          <!-- Link Icon -->
+          <i class="fa-solid fa-link" style="color:var(--color-text-primary)"></i>
+
+          <!-- URL Input -->
+          <input type="url" [(ngModel)]="longUrl" placeholder="Enter your long URL here..."
+            class="min-w-0 flex-1 border-0 bg-transparent text-sm text-text-primary outline-none placeholder:text-text-light focus:ring-0 sm:text-base" />
+        </div>
+
+        <!-- Shorten Button -->
+        <button type="button" (click)="shortenUrl()" [disabled]="isLoading"
+          class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-semibold text-white shadow-primary transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-70 sm:min-w-40">
+          @if (!isLoading) {
+          <span>Shorten URL</span>
+          <i class="fa-solid fa-arrow-right-long"></i>
+          }
+
+          @if (isLoading) {
+          <span class="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white"></span>
+
+          <span>Shortening...</span>
+          }
+        </button>
+      </div>
+
+      <!-- Trust Text -->
+      <div class="mt-4 flex items-center gap-2 text-sm text-text-muted">
+        <i class="fa-solid fa-check fa-rotate-by" style="--fa-rotate-angle: 14deg; color:var(--color-success)"></i>
+
+        Free to use · No account required
+      </div>
+
+      <!-- CTA -->
+      <a href="#about"
+        class="mt-7 inline-flex h-12 items-center justify-center rounded-full bg-primary px-7 text-sm font-semibold text-white no-underline shadow-primary transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark">
+        Explore ShortLink
+      </a>
+    </div>
+
+    <div class="relative mx-auto flex min-h-[500px] w-full max-w-xl items-center justify-center lg:min-h-[600px]">
+      <!-- Outer Circle -->
+      <div class="absolute h-[430px] w-[430px] rounded-full bg-background-blue sm:h-[520px] sm:w-[520px]"></div>
+
+      <!-- Inner Circle -->
+      <div class="absolute h-[330px] w-[330px] rounded-full bg-primary-light sm:h-[410px] sm:w-[410px]"></div>
+
+      <!-- Hero Image -->
+      <div
+        class="relative z-10 h-[400px] w-[300px] overflow-hidden rounded-[45%_45%_10%_10%] sm:h-[500px] sm:w-[370px]">
+        <img src="../../../../assets/hero/boy.png" alt="Hero illustration" class="h-full w-full object-cover" />
+      </div>
+
+      <div
+        class="absolute left-0 top-[48%] z-20 flex h-28 w-28 items-center justify-center rounded-3xl bg-card shadow-lg sm:left-2">
+        <i class="fa-solid fa-link fa-rotate-by" style="color:var(--color-primary); font-size: 2.5rem;"></i>
+      </div>
+
+      <div
+        class="absolute right-2 top-[32%] z-20 flex h-24 w-24 items-center justify-center rounded-3xl bg-primary shadow-primary sm:right-0">
+        <i class="fa-solid fa-check fa-rotate-by" style="color:var(--color-text-white); font-size: 2.5rem;"></i>
+      </div>
+
+      <div class="absolute bottom-8 right-0 z-20 rounded-2xl bg-card px-6 py-4 shadow-lg sm:right-[-10px]">
+        <div class="text-xl font-bold text-primary">
+          20K+
+        </div>
+
+        <div class="mt-1 text-sm font-medium text-text-secondary">
+          Links shortened
+        </div>
+      </div>
+
+      <!-- Decorative Blue Circle -->
+      <div class="absolute left-[18%] top-[20%] h-20 w-20 rounded-full bg-primary opacity-90"></div>
+    </div>
+  </div>
+</section>
