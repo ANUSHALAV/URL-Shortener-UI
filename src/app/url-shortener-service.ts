@@ -7,18 +7,18 @@ import { environment } from '../../environment';
 })
 export class UrlShortenerService {
 
-  constructor(private httpClient : HttpClient){}
+  constructor(private httpClient: HttpClient) { }
 
-  CreateShortUrl(url:string){
+  CreateShortUrl(url: string): any {
     let header = {
       'content-type': 'application/json',
     };
 
-    let params = {
-      url: url
+    let body = {
+      OriginalUrl: url
     }
 
-    this.httpClient.post(environment.baseurl+"api/UrlShortener/CreateShortUrl", {headers: header, params: params });
+    return this.httpClient.post(environment.baseurl + "api/UrlShortener/CreateShortUrl", body, { headers: header });
   }
-  
+
 }

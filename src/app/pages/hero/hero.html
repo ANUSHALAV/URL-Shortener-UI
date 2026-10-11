@@ -46,7 +46,7 @@
         </div>
 
         <!-- Shorten Button -->
-        <button type="button" (click)="shortenUrl()" [disabled]="isLoading"
+        <button type="button" (click)="onShortenUrl()" [disabled]="isLoading"
           class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-semibold text-white shadow-primary transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-70 sm:min-w-40">
           @if (!isLoading) {
           <span>Shorten URL</span>
@@ -60,6 +60,88 @@
           }
         </button>
       </div>
+
+
+      <!-- API Response Section -->
+      <div class="mt-5 w-full max-w-2xl">
+
+        <!-- Success Message + Short URL -->
+        @if (ShortUrlResponse.shortUrl) {
+        <div class="overflow-hidden rounded-2xl border border-green-200 bg-green-50 shadow-sm">
+
+          <!-- Success Header -->
+          <div class="flex items-center gap-3 border-b border-green-200 px-5 py-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-100">
+              <i class="fa-solid fa-check text-lg text-green-600"></i>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-green-800">
+                {{ ShortUrlResponse.message }}
+              </h3>
+              <p class="mt-1 text-sm text-green-700">
+                Your short link is ready to share.
+              </p>
+            </div>
+          </div>
+
+          <!-- Short URL Result -->
+          <div class="p-5">
+            <label class="mb-2 block text-sm font-medium text-gray-600">
+              Short URL
+            </label>
+
+            <div class="flex flex-col gap-3 rounded-xl border border-gray-200 bg-white p-3 sm:flex-row sm:items-center">
+              <a [href]="ShortUrlResponse.shortUrl" target="_blank" rel="noopener noreferrer"
+                class="min-w-0 flex-1 break-all text-sm font-semibold text-primary hover:underline">
+                {{ ShortUrlResponse.shortUrl }}
+              </a>
+
+              <button type="button" (click)="copyShortUrl()"
+                class="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-dark">
+
+                <i class="fa-solid" [class.fa-copy]="!isCopied" [class.fa-check]="isCopied">
+                </i>
+
+                {{ isCopied ? 'Copied!' : 'Copy Link' }}
+              </button>
+            </div>
+
+            <p class="mt-3 flex items-center gap-2 text-xs text-green-700">
+              <i class="fa-solid fa-circle-check"></i>
+              You can now share your short link anywhere.
+            </p>
+          </div>
+        </div>
+        }
+
+        <!-- Error Message -->
+        @if (!ShortUrlResponse.shortUrl) {
+        <div class="flex items-start gap-3 rounded-2xl border border-red-200 bg-red-50 p-5 shadow-sm" role="alert">
+
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-100">
+            <i class="fa-solid fa-circle-exclamation text-lg text-red-600"></i>
+          </div>
+
+          <div class="min-w-0 flex-1">
+            <h3 class="font-semibold text-red-800">
+              Error
+            </h3>
+
+            <p class="mt-1 break-words text-sm leading-6 text-red-700">
+               {{ShortUrlResponse?.message}}
+            </p>
+          </div>
+
+          <!-- <button type="button" (click)="errorMessage = ''" aria-label="Dismiss error"
+            class="text-red-500 transition hover:text-red-700">
+            <i class="fa-solid fa-xmark"></i>
+          </button> -->
+        </div>
+        }
+
+      </div>
+
 
       <!-- Trust Text -->
       <div class="mt-4 flex items-center gap-2 text-sm text-text-muted">
