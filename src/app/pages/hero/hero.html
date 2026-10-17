@@ -66,7 +66,7 @@
       <div class="mt-5 w-full max-w-2xl">
 
         <!-- Success Message + Short URL -->
-        @if (ShortUrlResponse.shortUrl) {
+        @if (ShortUrlResponse.success == true) {
         <div class="overflow-hidden rounded-2xl border border-green-200 bg-green-50 shadow-sm">
 
           <!-- Success Header -->
@@ -116,7 +116,7 @@
         }
 
         <!-- Error Message -->
-        @if (!ShortUrlResponse.shortUrl) {
+        @if(ShortUrlResponse.success == false) {
         <div class="flex items-start gap-3 rounded-2xl border border-red-200 bg-red-50 p-5 shadow-sm" role="alert">
 
           <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-100">
@@ -125,18 +125,13 @@
 
           <div class="min-w-0 flex-1">
             <h3 class="font-semibold text-red-800">
-              Error
+              Error : 
             </h3>
 
             <p class="mt-1 break-words text-sm leading-6 text-red-700">
                {{ShortUrlResponse?.message}}
             </p>
           </div>
-
-          <!-- <button type="button" (click)="errorMessage = ''" aria-label="Dismiss error"
-            class="text-red-500 transition hover:text-red-700">
-            <i class="fa-solid fa-xmark"></i>
-          </button> -->
         </div>
         }
 
@@ -151,7 +146,7 @@
       </div>
 
       <!-- CTA -->
-      <a href="#about"
+      <a routerLink="/about"
         class="mt-7 inline-flex h-12 items-center justify-center rounded-full bg-primary px-7 text-sm font-semibold text-white no-underline shadow-primary transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark">
         Explore ShortLink
       </a>

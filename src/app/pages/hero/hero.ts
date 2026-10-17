@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UrlShortenerService } from '../../url-shortener-service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
-  imports: [FormsModule],
+  imports: [FormsModule,RouterLink],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
   standalone: true
@@ -16,6 +17,7 @@ export class Hero {
   ShortUrlResponse: any = {
     shortUrl: '',
     message: '',
+    success : null,
   };
 
   constructor(private _urlShortenerService: UrlShortenerService) { }
@@ -27,13 +29,14 @@ export class Hero {
     this.isLoading = true;
     this._urlShortenerService.CreateShortUrl(this.longUrl).subscribe({
       next: (response: any) => {
-        console.log('Shortened URL:', response);
-        this.ShortUrlResponse.shortUrl = response.value.ShortUrl;
-        this.ShortUrlResponse.message = response.value.Message;
+        this.ShortUrlResponse.shortUrl = response.value.shortUrl;
+        this.ShortUrlResponse.message = response.value.message;
+        this.ShortUrlResponse.success = response.value.success;
         this.isLoading = false;
       },
       error: (error: any) => {
-        console.error('Error shortening URL:', error);
+        this.ShortUrlResponse.message = error;
+        this.ShortUrlResponse.success = false;
         this.isLoading = false;
       }
     }
